@@ -1,0 +1,303 @@
+/* ============================================
+   Page-Specific Styles
+   ============================================ */
+
+/* ---- DASHBOARD ---- */
+.dashboard-charts {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--space-5);
+  margin-top: var(--space-5);
+}
+
+.recent-section {
+  margin-top: var(--space-5);
+}
+
+.recent-section .card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (max-width: 1024px) {
+  .dashboard-charts {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---- VENDOR PAGE ---- */
+.vendor-header-actions {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.vendor-category-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 10px;
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  background: rgba(37, 99, 235, 0.08);
+  color: var(--brand-primary);
+}
+
+.vendor-contact {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+.vendor-contact .material-icons-round {
+  font-size: 14px;
+  color: var(--text-tertiary);
+}
+
+/* ---- RFQ PAGE ---- */
+.rfq-product-row {
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-end;
+  padding: var(--space-3);
+  background: var(--bg-elevated);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-3);
+}
+
+.rfq-product-row .form-group {
+  flex: 1;
+}
+
+.rfq-product-row .btn-icon {
+  flex-shrink: 0;
+  margin-bottom: 2px;
+}
+
+.rfq-vendor-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.vendor-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-3);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  user-select: none;
+}
+
+.vendor-chip.selected {
+  background: rgba(37, 99, 235, 0.1);
+  border-color: var(--brand-primary);
+  color: var(--brand-primary);
+}
+
+.vendor-chip:hover {
+  border-color: var(--border-strong);
+}
+
+/* ---- APPROVAL PAGE ---- */
+.approval-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  margin-bottom: var(--space-4);
+  transition: all var(--transition-fast);
+}
+
+.approval-card:hover {
+  border-color: var(--border-default);
+}
+
+.approval-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+}
+
+.approval-card-header h4 {
+  font-size: var(--font-size-md);
+  font-weight: 600;
+}
+
+.approval-meta {
+  display: flex;
+  gap: var(--space-6);
+  margin-bottom: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.approval-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.approval-meta-label {
+  font-size: var(--font-size-xs);
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.approval-meta-value {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+}
+
+.approval-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.approval-actions .form-group {
+  flex: 1;
+}
+
+.approval-actions input {
+  height: 38px;
+}
+
+/* ---- PURCHASE ORDER ---- */
+.po-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+
+.po-detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.po-detail-label {
+  font-size: var(--font-size-xs);
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.po-detail-value {
+  font-size: var(--font-size-md);
+  font-weight: 600;
+}
+
+.po-summary {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.po-summary-table {
+  width: 280px;
+}
+
+.po-summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-2) 0;
+  font-size: var(--font-size-md);
+}
+
+.po-summary-row.total {
+  border-top: 2px solid var(--border-strong);
+  padding-top: var(--space-3);
+  margin-top: var(--space-2);
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+  .po-detail-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ---- ACTIVITY LOG ---- */
+.activity-filters {
+  display: flex;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+  flex-wrap: wrap;
+}
+
+.activity-filters select {
+  width: auto;
+  min-width: 160px;
+}
+
+.activity-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  border-bottom: 1px solid var(--border-subtle);
+  transition: background var(--transition-fast);
+}
+
+.activity-item:hover {
+  background: var(--bg-card-hover);
+}
+
+.activity-item:last-child {
+  border-bottom: none;
+}
+
+.activity-icon-wrap {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.activity-icon-wrap.create { background: var(--color-success-bg); color: var(--color-success); }
+.activity-icon-wrap.update { background: var(--color-info-bg); color: var(--color-info); }
+.activity-icon-wrap.approve { background: rgba(37, 99, 235, 0.08); color: var(--brand-primary); }
+.activity-icon-wrap.reject { background: var(--color-danger-bg); color: var(--color-danger); }
+.activity-icon-wrap.email { background: var(--color-warning-bg); color: var(--color-warning); }
+
+.activity-icon-wrap .material-icons-round {
+  font-size: 18px;
+}
+
+.activity-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.activity-body strong {
+  color: var(--text-primary);
+}
+
+.activity-body p {
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+}
+
+.activity-time {
+  font-size: var(--font-size-xs);
+  color: var(--text-tertiary);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
