@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VendorBridge — Procurement & Vendor Management ERP</title>
+  <meta name="description" content="Enterprise procurement and vendor management platform. Streamline RFQs, purchase orders, invoices, and vendor relationships." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet" />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+</head>
+<body>
+
+  <!-- LOGIN SCREEN -->
+  <div id="login-screen" class="login-screen">
+    <div class="login-bg-split">
+      <div class="bg-half bg-left"></div>
+      <div class="bg-half bg-right"></div>
+    </div>
+    <div class="login-bg-logo">
+      <span class="material-icons-round">hub</span>
+      <div class="logo-text">VendorBridge</div>
+    </div>
+    <div class="login-container">
+      <div class="login-brand">
+        <div class="login-logo">
+          <span class="material-icons-round">hub</span>
+        </div>
+        <h1>VendorBridge</h1>
+        <p class="login-subtitle">Procurement & Vendor Management</p>
+      </div>
+
+      <div class="login-tabs">
+        <button type="button" class="login-tab active" id="tab-login">Sign In</button>
+        <button type="button" class="login-tab" id="tab-signup">Sign Up</button>
+      </div>
+
+      <form id="login-form" class="login-form" autocomplete="off">
+        <div class="form-group">
+          <label for="login-email">Email Address</label>
+          <div class="input-icon-wrapper">
+            <span class="material-icons-round input-icon">mail</span>
+            <input type="email" id="login-email" placeholder="you@company.com" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="login-password">Password</label>
+          <div class="input-icon-wrapper">
+            <span class="material-icons-round input-icon">lock</span>
+            <input type="password" id="login-password" placeholder="Enter your password" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="login-role">Sign in as</label>
+          <div class="input-icon-wrapper">
+            <span class="material-icons-round input-icon">badge</span>
+            <select id="login-role" required>
+              <option value="">Select your role</option>
+              <option value="admin">Admin</option>
+              <option value="procurement">SCM</option>
+              <option value="manager">Manager</option>
+              <option value="vendor">Vendor</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row form-row-between">
+          <label class="checkbox-label">
+            <input type="checkbox" id="login-remember" />
+            <span class="checkbox-custom"></span>
+            Remember me
+          </label>
+          <a href="#" class="link-subtle" id="login-forgot">Forgot password?</a>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full" id="login-btn">
+          <span>Sign In</span>
+          <span class="material-icons-round">arrow_forward</span>
+        </button>
+      </form>
+
+      <form id="signup-form" class="signup-form hidden" autocomplete="off">
+        <div class="form-group" id="signup-name-group">
+          <label for="signup-name">Full Name</label>
+          <div class="input-icon-wrapper">
+            <span class="material-icons-round input-icon">person</span>
+            <input type="text" id="signup-name" placeholder="John Doe" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="signup-email">Email Address</label>
+          <div class="input-icon-wrapper">
+            <span class="material-icons-round input-icon">mail</span>
+            <input type="email" id="signup-email" placeholder="you@gmail.com" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="signup-password">Password</label>
+          <div class="input-icon-wrapper">
+            <span class="material-icons-round input-icon">lock</span>
+            <input type="password" id="signup-password" placeholder="Min. 6 chars, 1 letter, 1 digit" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="signup-confirm-password">Confirm Password</label>
+          <div class="input-icon-wrapper">
+            <span class="material-icons-round input-icon">lock</span>
+            <input type="password" id="signup-confirm-password" placeholder="Confirm your password" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="signup-role">Register as</label>
+          <div class="input-icon-wrapper">
+            <span class="material-icons-round input-icon">badge</span>
+            <select id="signup-role" required>
+              <option value="">Select your role</option>
+              <option value="admin">Admin</option>
+              <option value="procurement">Procurement Officer</option>
+              <option value="manager">Manager</option>
+              <option value="vendor">Vendor</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="signup-vendor-fields" class="signup-vendor-fields hidden">
+          <div class="form-group">
+            <label for="signup-vendor-name">Vendor Name</label>
+            <div class="input-icon-wrapper">
+              <span class="material-icons-round input-icon">store</span>
+              <input type="text" id="signup-vendor-name" placeholder="e.g. Acme Supplies" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="signup-owner-name">Owner Name</label>
+            <div class="input-icon-wrapper">
+              <span class="material-icons-round input-icon">person</span>
+              <input type="text" id="signup-owner-name" placeholder="e.g. John Doe" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="signup-company-name">Company Name</label>
+            <div class="input-icon-wrapper">
+              <span class="material-icons-round input-icon">business</span>
+              <input type="text" id="signup-company-name" placeholder="e.g. Acme Corporation Pvt Ltd" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="signup-company-address">Company Address</label>
+            <div class="input-icon-wrapper">
+              <span class="material-icons-round input-icon">location_on</span>
+              <input type="text" id="signup-company-address" placeholder="e.g. 123 Industrial Area" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="signup-firm-type">Type of Firm</label>
+            <div class="input-icon-wrapper">
+              <span class="material-icons-round input-icon">category</span>
+              <select id="signup-firm-type">
+                <option value="">Select firm type</option>
+                <option value="LLM">LLM</option>
+                <option value="PVT LTD">PVT LTD</option>
+                <option value="PVT GOV">PVT GOV</option>
+                <option value="GOV">GOV</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="signup-gst">GST Number</label>
+            <div class="input-icon-wrapper">
+              <span class="material-icons-round input-icon">receipt</span>
+              <input type="text" id="signup-gst" placeholder="e.g. 22AAAAA0000A1Z5" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="signup-pan">PAN Card Number</label>
+            <div class="input-icon-wrapper">
+              <span class="material-icons-round input-icon">credit_card</span>
+              <input type="text" id="signup-pan" placeholder="e.g. ABCDE1234F" />
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-full" id="signup-btn">
+          <span>Create Account</span>
+          <span class="material-icons-round">person_add</span>
+        </button>
+      </form>
+
+      <p class="login-footer">© 2026 VendorBridge · Enterprise ERP Platform</p>
+    </div>
+  </div>
+
+  <!-- MAIN APP SHELL -->
+  <div id="app-shell" class="app-shell hidden">
+    
+    <!-- SIDEBAR -->
+    <aside id="sidebar" class="sidebar">
+      <div class="sidebar-brand">
+        <span class="material-icons-round brand-icon">hub</span>
+        <span class="brand-text">VendorBridge</span>
+      </div>
+
+      <div class="sidebar-user">
+        <div class="user-avatar" id="user-avatar">A</div>
+        <div class="user-info">
+          <span class="user-name" id="user-name">Admin User</span>
+          <span class="user-role" id="user-role-label">Administrator</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section-label" id="label-main">Main</div>
+        <a href="#" class="nav-item active" data-page="dashboard" id="nav-dashboard">
+          <span class="material-icons-round">dashboard</span>
+          <span>Dashboard</span>
+        </a>
+        <a href="#" class="nav-item" data-page="vendors" id="nav-vendors">
+          <span class="material-icons-round">store</span>
+          <span>Vendors</span>
+        </a>
+
+        <div class="nav-section-label" id="label-procurement">Procurement</div>
+        <a href="#" class="nav-item" data-page="rfq" id="nav-rfq">
+          <span class="material-icons-round">request_quote</span>
+          <span>RFQ Creation</span>
+        </a>
+        <a href="#" class="nav-item" data-page="quotation" id="nav-quotation">
+          <span class="material-icons-round">compare_arrows</span>
+          <span>Quotation Compare</span>
+        </a>
+        <a href="#" class="nav-item" data-page="approval" id="nav-approval">
+          <span class="material-icons-round">verified</span>
+          <span>Approvals</span>
+          <span class="nav-badge" id="approval-badge">3</span>
+        </a>
+
+        <div class="nav-section-label" id="label-orders">Orders & Finance</div>
+        <a href="#" class="nav-item" data-page="purchase-order" id="nav-purchase-order">
+          <span class="material-icons-round">receipt_long</span>
+          <span>Purchase Orders</span>
+        </a>
+        <a href="#" class="nav-item" data-page="invoice" id="nav-invoice">
+          <span class="material-icons-round">description</span>
+          <span>Invoices</span>
+        </a>
+
+        <div class="nav-section-label" id="label-system">System</div>
+        <a href="#" class="nav-item" data-page="activity" id="nav-activity">
+          <span class="material-icons-round">timeline</span>
+          <span>Activity Logs</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="#" class="nav-item" id="logout-btn">
+          <span class="material-icons-round">logout</span>
+          <span>Sign Out</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+      <header class="topbar">
+        <button class="topbar-toggle" id="sidebar-toggle">
+          <span class="material-icons-round">menu</span>
+        </button>
+        <div class="topbar-search">
+          <span class="material-icons-round">search</span>
+          <input type="text" placeholder="Search anything..." id="global-search" autocomplete="off" />
+          <div id="search-results-dropdown" class="search-results-dropdown hidden"></div>
+        </div>
+        <div class="topbar-actions">
+          <div class="topbar-notif-wrapper">
+            <button class="topbar-btn" id="notif-btn" title="Notifications">
+              <span class="material-icons-round">notifications</span>
+              <span class="topbar-badge">5</span>
+            </button>
+            <div id="notif-dropdown" class="notif-dropdown hidden"></div>
+          </div>
+          <button class="topbar-btn" id="theme-toggle" title="Toggle theme">
+            <span class="material-icons-round">dark_mode</span>
+          </button>
+        </div>
+      </header>
+
+      <div class="page-content" id="page-content">
+        <!-- Pages rendered here by JS -->
+      </div>
+    </main>
+  </div>
+
+  <!-- TOAST NOTIFICATIONS -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- SCRIPTS -->
+  <script src="js/data.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/pages/dashboard.js"></script>
+  <script src="js/pages/vendors.js"></script>
+  <script src="js/pages/rfq.js"></script>
+  <script src="js/pages/quotation.js"></script>
+  <script src="js/pages/approval.js"></script>
+  <script src="js/pages/purchase-order.js"></script>
+  <script src="js/pages/invoice.js"></script>
+  <script src="js/pages/activity.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
